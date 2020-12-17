@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ComponentFactoryResolver, OnInit } from '@angular/core';
 import { empty, Observable } from 'rxjs';
 import { AngularFireDatabase, AngularFireList, AngularFireObject } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { BetsService, Bet } from 'src/app/bets.service';
 
 @Component({
   selector: 'app-bets',
@@ -10,54 +11,22 @@ import { AngularFireAuth } from '@angular/fire/auth';
 })
 export class BetsComponent implements OnInit {
 
-  userId: string;
-
-  betsDB: AngularFireList<Bet[]>;
   bets: Bet[];
-
-  constructor(public db: AngularFireDatabase, public auth: AngularFireAuth) { 
-    this.userId = "ERROR";
+  displayBets = false;
+  
+  constructor(private bs: BetsService) { 
     this.bets = [];
-    this.auth.authState.subscribe(user => {
-      if(user) this.userId = user.uid
-    });
-    this.betsDB = this.db.list(`bets/${this.userId}`);
   }
 
   ngOnInit(): void {
-    this.betsDB = this.db.list(`bets/${this.userId}`);
-    setTimeout(() => this.getBets(), 10)
+    this.bets = this.bs.getBets();
+    setTimeout(() => this.bets = this.bs.getBets(), 5000)
+    console.log("sdf")
   }
 
-  getBets(){
-    this.betsDB = this.db.list(`bets/${this.userId}`);
-    this.betsDB.snapshotChanges().forEach(betsSnapshot => {
-      this.bets = []
-      var i = 0
-      betsSnapshot.forEach(betsSnapshot => {
-        let bet = betsSnapshot.payload.toJSON();
-        let key = betsSnapshot.key;
-        this.bets.push(bet as Bet);
-        if(key) this.bets[i].key = key;
-        i = i+1;
-      })
-    })
-  }
-
-  printBets(){
-    console.log(this.bets[1])
+  test(){
+    this.displayBets = true;
   }
 
 
-}
-
-export class Bet{
-  key: string;
-  teams: string[];
-  points: string[]; 
-  constructor(){
-    this.key = '';
-    this.teams = [];
-    this.points = [];
-  }
 }

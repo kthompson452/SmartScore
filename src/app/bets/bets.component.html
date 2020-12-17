@@ -1,5 +1,7 @@
-<button (click)="printBets()">Click</button>
+<button (click)="test()">Click</button>
 
 <pre>
-    {{ bets | json }}
+    <div *ngIf="this.displayBets">
+        {{ bets | json }}
+        </div>
 </pre>

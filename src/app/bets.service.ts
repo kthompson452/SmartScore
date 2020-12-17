@@ -23,6 +23,7 @@ export class BetsService {
   }
 
   getBets(){
+    setTimeout(() => this.db.list(`bets/${this.userId}`), 10);
     this.betsDB = this.db.list(`bets/${this.userId}`);
     this.betsDB.snapshotChanges().forEach(betsSnapshot => {
       this.bets = []
@@ -35,6 +36,7 @@ export class BetsService {
         i = i+1;
       })
     })
+  return this.bets
   }
 }
 
