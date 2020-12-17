@@ -1,0 +1,18 @@
+<body>
+<h1 class='title'>Sign in to SmartScore</h1>
+<h2>
+<form matForm class="form" [formGroup]="loginForm">
+    <mat-form-field class='form-control'>
+        <mat-label>E-Mail</mat-label>
+        <input matInput formControlName="email" type="text">
+    </mat-form-field>
+    <mat-form-field class='form-control'>
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password">
+    </mat-form-field>
+    <div class='form-button'>
+    <button mat-button (click)="login()">Login</button>
+    </div>
+    <a class='register-link' routerLink="/register">Sign up for SmartScore</a>
+</form>
+</h2>

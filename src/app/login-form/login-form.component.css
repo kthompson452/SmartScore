@@ -1,0 +1,30 @@
+:host {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50vh;
+}
+.title{
+    display: block;
+    padding-top: 30px;
+    font-weight: 100;
+    font-size: 35px;
+}
+.form{
+    padding-left: .5rem;
+    padding-top: 1rem;
+    width: 20rem;
+}
+
+.form-control{
+    display: block;
+}
+
+.form-button{
+    padding-left: 38%;
+}
+
+.register-link{
+    display: block;
+    text-align: center;
+}

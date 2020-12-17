@@ -1,0 +1,17 @@
+<body>
+    <h1 class='title'>Register for SmartScore</h1>
+
+    <h2>
+<form matForm class="form" [formGroup]="registerForm">
+    <mat-form-field class='form-control'>
+        <mat-label>E-Mail</mat-label>
+        <input matInput formControlName="email" type="text">
+    </mat-form-field>
+    <mat-form-field class='form-control'>
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password">
+    </mat-form-field>
+    <button mat-button (click)="createUser()" class='form-button'>Create Account</button>
+</form>
+
+</h2>
