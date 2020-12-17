@@ -16,11 +16,13 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
+import { MatTableModule } from '@angular/material/table';
 
 import { RegisterComponent } from './register/register.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BetsComponent } from './bets/bets.component';
+import { ScoresComponent } from './scores/scores.component';
 
 
 @NgModule({
@@ -28,7 +30,8 @@ import { BetsComponent } from './bets/bets.component';
     AppComponent,
     LoginFormComponent,
     RegisterComponent,
-    BetsComponent
+    BetsComponent,
+    ScoresComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +45,7 @@ import { BetsComponent } from './bets/bets.component';
     MatInputModule,
     MatToolbarModule,
     MatMenuModule,
+    MatTableModule,
     RouterModule,
     ReactiveFormsModule,
     FormsModule

@@ -18,15 +18,14 @@ export class BetsComponent implements OnInit {
   constructor(public db: AngularFireDatabase, public auth: AngularFireAuth) { 
     this.userId = "ERROR";
     this.bets = [];
+    this.betsDB = this.db.list(`bets/${this.userId}`);
     this.auth.authState.subscribe(user => {
       if(user) this.userId = user.uid
     });
-    this.betsDB = this.db.list(`bets/${this.userId}`);
   }
 
   ngOnInit(): void {
-    this.betsDB = this.db.list(`bets/${this.userId}`);
-    setTimeout(() => this.getBets(), 10)
+    setTimeout(() => this.getBets(), 100)
   }
 
   getBets(){
@@ -43,11 +42,6 @@ export class BetsComponent implements OnInit {
       })
     })
   }
-
-  printBets(){
-    console.log(this.bets[1])
-  }
-
 
 }
 

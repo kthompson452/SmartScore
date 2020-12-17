@@ -5,6 +5,8 @@ import { RegisterComponent } from './register/register.component';
 import { LoginFormComponent } from './login-form/login-form.component';
 import { AngularFireAuthGuard, redirectUnauthorizedTo, redirectLoggedInTo, canActivate } from '@angular/fire/auth-guard';
 import { BetsComponent } from './bets/bets.component';
+import { ScoresComponent } from './scores/scores.component';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['/login']);
@@ -14,7 +16,8 @@ const routes: Routes = [
   { path: '', component: LoginFormComponent},
   { path: 'login', component: LoginFormComponent, ...canActivate(redirectLoggedInToBets)},
   { path: 'register', component: RegisterComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectLoggedInToBets }},
-  { path: 'bets', component: BetsComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }}
+  { path: 'bets', component: BetsComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }},
+  { path: 'scores', component: ScoresComponent, canActivate: [AngularFireAuthGuard], data: { authGuardPipe: redirectUnauthorizedToLogin }}
 ];
 
 @NgModule({

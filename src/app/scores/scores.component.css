@@ -1,0 +1,13 @@
+table{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+mat-header-cell, mat-cell{
+    justify-content: center;
+}
+
+.container{
+    text-align: center;
+}
