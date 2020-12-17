@@ -2,11 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireList, AngularFireDatabase } from '@angular/fire/database';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { formatDate } from '@angular/common';
+import { Injectable } from '@angular/core';
 
 @Component({
   selector: 'app-scores',
   templateUrl: './scores.component.html',
   styleUrls: ['./scores.component.css']
+})
+@Injectable({
+  providedIn: 'root'
 })
 export class ScoresComponent implements OnInit {
 
@@ -57,7 +61,6 @@ export class ScoresComponent implements OnInit {
       this.games = []
       gamesSnapshot.forEach(gamesSnapshot => {
         let game = gamesSnapshot.payload.toJSON();
-        console.log(game)
         this.games.push(game as Game);
       })
     })

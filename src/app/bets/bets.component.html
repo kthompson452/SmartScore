@@ -1,3 +1,19 @@
-<pre>
-    {{ bets | json }}
-</pre>
+<div fxLayout='row' fxLayoutWrap class="cards">
+
+    <div fxFlex="20" class="example-card">
+    <mat-card *ngFor="let bet of bets" style="margin-top:10px;"
+    [ngStyle]="{'color': getColor(bet)}">
+        <mat-card-header>
+            <mat-card-title>{{bet.awayTeam}}@ {{bet.homeTeam}}</mat-card-title>
+        </mat-card-header>
+      <mat-card-content>
+          <p>
+              You bet {{bet.teamBet}} with {{bet.points}} points.
+          </p>
+          <p>
+              {{bet.isWinning}}
+          </p>
+      </mat-card-content>
+    </mat-card> 
+
+    <button (click)="checkBets()">test</button>
