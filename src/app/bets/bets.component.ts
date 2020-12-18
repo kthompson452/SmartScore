@@ -27,7 +27,8 @@ export class BetsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    setTimeout(() => this.getBets(), 100)
+    setTimeout(() => this.getBets(), 100);
+    setTimeout(() => this.checkBets(), 1000);
   }
 
   getColor(bet: Bet){

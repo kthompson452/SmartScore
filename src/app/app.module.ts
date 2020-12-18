@@ -24,6 +24,7 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BetsComponent } from './bets/bets.component';
 import { ScoresComponent } from './scores/scores.component';
+import { CreateBetComponent } from './create-bet/create-bet.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { ScoresComponent } from './scores/scores.component';
     LoginFormComponent,
     RegisterComponent,
     BetsComponent,
-    ScoresComponent
+    ScoresComponent,
+    CreateBetComponent
   ],
   imports: [
     BrowserModule,
